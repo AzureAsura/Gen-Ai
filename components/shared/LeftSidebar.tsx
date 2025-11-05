@@ -3,12 +3,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-
+import { useDisconnect, useAccount } from "wagmi";
 import { sidebarLinks } from "@/constants";
 
 const LeftSidebar = () => {
     const router = useRouter();
     const pathname = usePathname();
+    const { isConnected } = useAccount();
+    const { disconnect } = useDisconnect();
+
+    const handleLogout = () => {
+        disconnect(); // ⛔ langsung disconnect wallet
+    };
 
 
     return (
@@ -38,16 +44,22 @@ const LeftSidebar = () => {
 
             </div>
 
-            <div className='mt-10 px-6'>
-                <div>
-                    <div>
-                        <div className='flex cursor-pointer gap-4 p-4'>
-                            <Image src="/logout.svg" alt='logout' width={24} height={24} />
-
-                            <p className='text-light-2 max-lg:hidden'>Logout</p>
+            <div className="mt-10 px-6">
+                {isConnected ? (
+                    <div onClick={handleLogout}>
+                        <div className="flex cursor-pointer gap-4 p-4 hover:bg-dark-3 rounded-lg">
+                            <Image src="/logout.svg" alt="logout" width={24} height={24} />
+                            <p className="text-light-2 max-lg:hidden">Logout</p>
                         </div>
                     </div>
-                </div>
+                ) : (
+                    <Link href={'/sign-in'}>
+                        <div className="flex cursor-pointer gap-4 p-4 hover:bg-dark-3 rounded-lg">
+                            <Image src="/logout.svg" alt="logout" width={24} height={24} />
+                            <p className="text-light-2 max-lg:hidden">Connect Wallet</p>
+                        </div>
+                    </Link>
+                )}
             </div>
         </section>
     );

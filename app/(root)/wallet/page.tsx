@@ -1,9 +1,8 @@
-import React from 'react'
 
-const page = () => {
+export default function WalletPage() {
   return (
-    <div className='text-2xl text-white'>wallet</div>
-  )
+    <div className="p-6 text-white">
+      <h1 className="text-xl font-bold mb-4">Wallet Dashboard</h1>
+    </div>
+  );
 }
-
-export default page

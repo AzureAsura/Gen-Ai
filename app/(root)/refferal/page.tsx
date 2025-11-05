@@ -1,9 +1,9 @@
-import React from 'react'
+import { ProtectedRoute } from '@/components/ProtectedRoute'
 
-const page = () => {
+export default function RefferalPage() {
   return (
-    <div className='text-2xl text-white'>refferal</div>
+    <ProtectedRoute>
+      <div className='text-2xl text-white'>referral</div>
+    </ProtectedRoute>
   )
 }
-
-export default page

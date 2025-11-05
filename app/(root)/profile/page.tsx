@@ -1,8 +1,10 @@
-import React from 'react'
+import { ProtectedRoute } from "@/components/ProtectedRoute"
 
 const page = () => {
   return (
-    <div className='text-2xl text-white'>profile</div>
+    <ProtectedRoute>
+      <div className='text-2xl text-white'>PROFILE</div>
+    </ProtectedRoute>
   )
 }
 
