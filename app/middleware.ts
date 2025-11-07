@@ -1,19 +1,19 @@
-// middleware.ts
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+// // middleware.ts
+// import { NextResponse } from 'next/server'
+// import type { NextRequest } from 'next/server'
 
-export function middleware(request: NextRequest) {
-  const walletConnected = request.cookies.get('wallet-connected')?.value
+// export function middleware(request: NextRequest) {
+//   const walletConnected = request.cookies.get('wallet-connected')?.value
   
-  if (request.nextUrl.pathname.startsWith('/referral')) {
-    if (walletConnected !== 'true') {
-      return NextResponse.redirect(new URL('/sign-in', request.url))
-    }
-  }
+//   if (request.nextUrl.pathname.startsWith('/referral')) {
+//     if (walletConnected !== 'true') {
+//       return NextResponse.redirect(new URL('/sign-in', request.url))
+//     }
+//   }
 
-  return NextResponse.next()
-}
+//   return NextResponse.next()
+// }
 
-export const config = {
-  matcher: ['/referral/:path*', '/dashboard/:path*', '/profile/:path*'],
-}
+// export const config = {
+//   matcher: ['/referral/:path*', '/dashboard/:path*', '/profile/:path*'],
+// }

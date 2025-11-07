@@ -14,6 +14,10 @@ const Navbar = () => {
                 <p className='text-[24px] font-bold text-light-1 max-xs:hidden'>VN AI</p>
             </Link>
 
+            
+
+
+
             <div className='flex items-center gap-1'>
                 <WalletAddress />
 

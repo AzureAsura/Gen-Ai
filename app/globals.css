@@ -5,11 +5,10 @@
 @layer components {
   /* main */
   .main-container {
-    @apply flex min-h-screen flex-1 flex-col items-center bg-dark-1 px-6 pb-10 pt-28 max-md:pb-32 sm:px-10;
+    @apply flex min-h-screen flex-1 flex-col items-center bg-dark-1 px-6 pb-10 pt-20 max-md:pb-32 max-md:pt-32;
   }
-
   .topbar {
-    @apply fixed top-0 z-30 flex w-full items-center justify-between bg-dark-2 px-2 py-3 lg:px-6;
+    @apply fixed top-0 z-30 flex w-full items-center justify-between bg-dark-2 px-2 py-5 lg:px-6 max-md:min-h-[60px] md:max-h-[60px]; 
   }
 
   .bottombar {
