@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Search, Wallet } from 'lucide-react';
 import Image from 'next/image';
-import { banner, items  } from '@/constants';
+import { banner, items } from '@/constants';
 import Link from 'next/link';
 
 export default function Home() {
@@ -50,7 +50,7 @@ export default function Home() {
       </div>
 
       {/* Filters */}
-      <div className="flex gap-3 mb-6 overflow-x-auto pb-2 scrollbar-hide">
+      <div className="flex flex-wrap gap-3 mb-6 pb-2">
         {filters.map((filter) => (
           <button
             key={filter}
@@ -72,12 +72,14 @@ export default function Home() {
             key={item.id}
             className="relative aspect-square rounded-2xl overflow-hidden group cursor-pointer bg-slate-800/30 border border-slate-700/30 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/20"
           >
-            <img
-              src={item.image}
-              alt={`Item ${item.id}`}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            <Link href={`/image/${item.id}`}>
+              <img
+                src={item.image}
+                alt={`Item ${item.id}`}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            </Link>
           </div>
         ))}
       </div>

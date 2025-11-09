@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Search, Wallet } from 'lucide-react';
 import Image from 'next/image';
 import { items } from '@/constants';
+import Link from 'next/link';
 
 export default function page() {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -13,8 +14,8 @@ export default function page() {
 
   return (
     <>
-      <div className="flex items-center justify-between mb-8">
-        <div className="flex-1 w-full relative">
+      <div className="flex items-center justify-between mb-8 ">
+        <div className="flex-1 max-w-7xl mx-auto relative">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
           <input
             type="text"
@@ -28,9 +29,9 @@ export default function page() {
           <span className="text-gray-400">USDT</span>
         </div>
       </div>
-      
+
       {/* Filters */}
-      <div className="flex gap-3 mb-6 overflow-x-auto pb-2 scrollbar-hide">
+      <div className="flex flex-wrap gap-3 mb-6 pb-2">
         {filters.map((filter) => (
           <button
             key={filter}
@@ -52,12 +53,14 @@ export default function page() {
             key={item.id}
             className="relative aspect-square rounded-2xl overflow-hidden group cursor-pointer bg-slate-800/30 border border-slate-700/30 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/20"
           >
-            <img
-              src={item.image}
-              alt={`Item ${item.id}`}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            <Link href={`/image/${item.id}`}>
+              <img
+                src={item.image}
+                alt={`Item ${item.id}`}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            </Link>
           </div>
         ))}
       </div>
