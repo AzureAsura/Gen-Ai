@@ -13,7 +13,7 @@ const LeftSidebar = () => {
     const { disconnect } = useDisconnect();
 
     const handleLogout = () => {
-        disconnect(); // ⛔ langsung disconnect wallet
+        disconnect(); 
     };
 
 

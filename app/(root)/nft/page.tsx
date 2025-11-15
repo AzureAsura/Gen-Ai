@@ -47,23 +47,19 @@ export default function page() {
       </div>
 
       {/* Grid Items */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="columns-2 md:columns-3 lg:columns-4 gap-4">
         {items.map((item) => (
-          <div
-            key={item.id}
-            className="relative aspect-square rounded-2xl overflow-hidden group cursor-pointer bg-slate-800/30 border border-slate-700/30 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/20"
-          >
-            <Link href={`/image/${item.id}`}>
+          <Link href={`/image/${item.id}`} key={item.id}>
+            <div className="mb-4 break-inside-avoid">
               <img
                 src={item.image}
-                alt={`Item ${item.id}`}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                className="w-full h-auto rounded-xl"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-            </Link>
-          </div>
+            </div>
+          </Link>
         ))}
       </div>
+
     </>
 
 

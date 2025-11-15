@@ -46,9 +46,8 @@ const Profile = () => {
         <div className="flex gap-8 mb-8 border-b border-zinc-800">
           <button
             onClick={() => setActiveTab('images')}
-            className={`pb-3 px-1 transition-colors relative ${
-              activeTab === 'images' ? 'text-white' : 'text-zinc-500'
-            }`}
+            className={`pb-3 px-1 transition-colors relative ${activeTab === 'images' ? 'text-white' : 'text-zinc-500'
+              }`}
           >
             Images
             {activeTab === 'images' && (
@@ -57,9 +56,8 @@ const Profile = () => {
           </button>
           <button
             onClick={() => setActiveTab('nfts')}
-            className={`pb-3 px-1 transition-colors relative ${
-              activeTab === 'nfts' ? 'text-white' : 'text-zinc-500'
-            }`}
+            className={`pb-3 px-1 transition-colors relative ${activeTab === 'nfts' ? 'text-white' : 'text-zinc-500'
+              }`}
           >
             NFTs
             {activeTab === 'nfts' && (
@@ -69,23 +67,18 @@ const Profile = () => {
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {items.map((item) => (
-                  <div
-                    key={item.id}
-                    className="relative aspect-square rounded-2xl overflow-hidden group cursor-pointer bg-slate-800/30 border border-slate-700/30 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/20"
-                  >
-                    <Link href={`/image/${item.id}`}>
-                      <img
-                        src={item.image}
-                        alt={`Item ${item.id}`}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </Link>
-                  </div>
-                ))}
+        <div className="columns-2 md:columns-3 lg:columns-4 gap-4">
+          {items.map((item) => (
+            <Link href={`/image/${item.id}`} key={item.id}>
+              <div className="mb-4 break-inside-avoid">
+                <img
+                  src={item.image}
+                  className="w-full h-auto rounded-xl"
+                />
               </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );

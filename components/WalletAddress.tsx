@@ -15,7 +15,6 @@ const WalletAddress = () => {
             </div>
         ) : (
             <div className="text-white px-4 py-2 flex items-center gap-2">
-                {/* Button hanya muncul di max-md */}
                 <Link href="/sign-in" className="md:hidden">
                     <button className="bg-primary-500 px-4 py-2 rounded-xl text-white w-full text-center">
                         Login

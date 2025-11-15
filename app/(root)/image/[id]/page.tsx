@@ -18,17 +18,17 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
 
                     {/* Left Side - Image */}
                     <div className="lg:col-span-2">
-                        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-teal-900 to-teal-950">
+                        <div className="relative rounded-3xl overflow-hidden flex items-center justify-center h-[650px]">
                             <img
                                 src={item?.image}
                                 alt="Fantasy Dragon"
-                                className="w-full h-auto object-cover"
-                                style={{ aspectRatio: '16/10' }}
+                                className="h-full w-auto object-cover rounded-xl "
                             />
                         </div>
 
+
                         {/* Tags */}
-                        <div className="flex gap-3 mt-6">
+                        <div className="flex gap-3 mt-6 justify-center">
                             {['#animal', '#fantasy', '#portrait'].map((tag) => (
                                 <span
                                     key={tag}
